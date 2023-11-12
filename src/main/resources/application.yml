@@ -1,0 +1,61 @@
+server:
+  port: 2024
+  servlet:
+        context-path: /inte
+spring:
+  datasource:
+    url: jdbc:postgresql://167.86.122.22:5432/fusion
+    username: ernest
+    password: e1988std
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/fusion
+#    username: postgres
+#    password: e1988std
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+      format-sql: true
+      type: info
+      use-sql-comments: true
+      properties:
+        hibernate.use_sql_comments: true
+        hibernate.format_sql: true
+
+springdoc:
+  show-actuator: true
+  paths-to-match: /**
+  packages-to-scan: com.ernest.inte
+
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+
+logging:
+  level:
+    org.springframework: INFO
+    com.ernest.inte: INFO
+
+## FIXME : Customize JWT token and Swagger information for your application
+
+jwt:
+  secretKey: secret
+  issuer: www.inte.com
+  expirationMinute: 30
+
+swagger:
+  contact-name: Ernest Duker
+  contact-mail: dukerernestjunior34@gmail.com
+  contact-url: http://indexgenesys.com
+  app-name: INTE PROJECT
+  app-description: "Spring Boot Boilerplate"
+  app-version: 2.0.0
+  app-license-url: https://www.apache.org/licenses/LICENSE-2.0.html
+  app-license: Apache 2.0
